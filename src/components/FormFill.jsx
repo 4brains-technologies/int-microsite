@@ -1,7 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
+const SuccessMessage = () => (
+    <div className="bg-green-50 rounded-lg p-8 text-center mb-6">
+        <div className="mb-4">
+            <div className="w-12 h-12 bg-green-500 rounded-full mx-auto flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+        </div>
+        <h2 className="text-xl font-bold mb-2 text-green-800">Payment Successful</h2>
+        <p className="text-green-600">Thank you for your payment. Your order is being processed.</p>
+    </div>
+);
 
 const FormFill = () => {
     const [formData, setFormData] = useState({
@@ -15,8 +29,18 @@ const FormFill = () => {
 
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
+    const [paymentSuccess, setPaymentSuccess] = useState(false);
     const SERVICE_URL = process.env.NEXT_PUBLIC_SERVICE_URL;
     const RAZORPAY_KEY_ID = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+
+    useEffect(() => {
+        if (paymentSuccess) {
+            const timer = setTimeout(() => {
+                setPaymentSuccess(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [paymentSuccess]);
 
     const loadRazorpayScript = () => {
         return new Promise((resolve) => {
@@ -36,6 +60,18 @@ const FormFill = () => {
             ...prev,
             [name]: value
         }));
+    };
+
+    const formatDateTime = () => {
+        const now = new Date();
+        return now.toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        });
     };
 
     const handleSubmit = async (e) => {
@@ -65,7 +101,15 @@ const FormFill = () => {
                 description: 'Registration Payment',
                 order_id: payment.orderId,
                 handler: function (response) {
-                    setMessage('Payment initiated. You\'ll receive confirmation shortly.');
+                    setPaymentSuccess(true);
+                    setFormData({
+                        name: '',
+                        email: '',
+                        mobile: '',
+                        organisation: '',
+                        designation: '',
+                        gstin: ''
+                    });
                 },
                 prefill: {
                     name: user.name,
@@ -116,6 +160,7 @@ const FormFill = () => {
                 <div className="md:w-2/3 bg-white rounded-3xl p-8">
                     <h2 className="text-3xl font-bold mb-4 text-black">Register Here</h2>
                     <p className="text-gray-600 mb-6 text-sm">Complete the registration form and proceed to payment</p>
+                    {paymentSuccess && <SuccessMessage />}
                     {message && <p className="text-sm text-emerald-600 mb-4">{message}</p>}
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
