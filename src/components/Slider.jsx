@@ -16,7 +16,12 @@ const Slider = () => {
     '/images/image 16.png',
     '/images/image 17.png',
     '/images/image 18.png',
-    '/images/image 19.png'
+    '/images/image 19.png',
+    '/images/image 16.png',
+    '/images/image 17.png',
+    '/images/image 18.png',
+    '/images/image 19.png',
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,12 +38,12 @@ const Slider = () => {
     <div className="relative my-10 xl:my-32 w-full overflow-hidden h-[100px] md:h-[150px]">
       <div
         className="flex transition-transform duration-1000 ease-linear"
-        style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+        style={{ transform: `translateX(-${currentIndex * (100/4)}%)` }}
       >
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="min-w-[40%] h-[100px] md:h-[150px] relative group xl:w-[50px]"
+            className="min-w-[40%] md:min-w-[33.33%] xl:min-w-[25%] h-[100px] md:h-[150px] relative group"
           >
             <Image
               src={image}
