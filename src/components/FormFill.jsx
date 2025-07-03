@@ -13,7 +13,7 @@ const SuccessMessage = () => (
             </div>
         </div>
         <h2 className="text-xl font-bold mb-2 text-green-800">Payment Successful</h2>
-        <p className="text-green-600">Thank you for your payment. Your order is being processed.</p>
+        <p className="text-green-600">Thank you for your payment. Your Ticket is being processed.</p>
     </div>
 );
 
