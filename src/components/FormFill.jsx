@@ -134,7 +134,7 @@ const FormFill = () => {
     };
 
     return (
-        <div className="flex items-center flex-col justify-center p-4">
+        <div id="registration-form" className="flex items-center flex-col justify-center p-4">
             <div className='w-[85%] mx-auto mb-6'>
                 <h2 className='text-left text-3xl xl:text-8xl font-bold uppercase'>Register</h2>
             </div>
