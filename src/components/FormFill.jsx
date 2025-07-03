@@ -141,19 +141,19 @@ const FormFill = () => {
             <div className="xl:bg-[#1A1A1A] bg-none xl:rounded-[40px] xl:px-[98px] xl:py-[150px] xl:mt-[100px] xl:max-w-[85%] max-w-5xl w-full rounded-lg p-4 md:p-12 flex flex-col md:flex-row justify-between gap-8 md:gap-16">
                 <div className="flex flex-col gap-4 mdw-1/3 text-white">
                     <h2 className="text-2xl xl:text-7xl font-bold">We're Here To Assist You</h2>
-                    <p className="text-gray-300 xl:text-2xl xl:mt-1 text-sm">Life is a celebration, and we at PartyHard believe everyone should celebrate, not just the grand occasions</p>
-                    <div className="space-y-10 xl:mt-5">
+                    <p className="text-gray-300 xl:text-2xl xl:mt-1 text-[10px]">Life is a celebration, and we at PartyHard believe everyone should celebrate, not just the grand occasions</p>
+                    <div className="xl:space-y-6 space-y-4   xl:mt-5">
                         <div>
                             <h3 className="font-semibold mb-1 xl:text-5xl xl:pb-1">Contact Us</h3>
-                            <p className="text-gray-300 text-sm xl:text-2xl">+917042428894</p>
+                            <p className="text-gray-300 text-[10px] xl:text-2xl">+917042428894</p>
                         </div>
                         <div>
                             <h3 className="font-semibold mb-1 xl:text-5xl xl:pb-1">Email</h3>
-                            <p className="text-gray-300 text-sm xl:text-2xl">tanvi@indiainsurtech.com</p>
+                            <p className="text-gray-300 text-[10px] xl:text-2xl">tanvi@indiainsurtech.com</p>
                         </div>
                         <div>
                             <h3 className="font-semibold mb-1 xl:text-5xl xl:pb-1">Event Location</h3>
-                            <p className="text-gray-300 text-sm xl:text-2xl">Fairmont, Mumbai</p>
+                            <p className="text-gray-300 text-[10px] xl:text-2xl">Fairmont, Mumbai</p>
                         </div>
                     </div>
                 </div>
@@ -162,7 +162,7 @@ const FormFill = () => {
                     <p className="text-gray-600 mb-6 text-sm">Complete the registration form and proceed to payment</p>
                     {paymentSuccess && <SuccessMessage />}
                     {message && <p className="text-sm text-emerald-600 mb-4">{message}</p>}
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} className="xl:space-y-5 space-y-4">
                         <div>
                             <input
                                 type="text"
@@ -171,7 +171,7 @@ const FormFill = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full border-b-2 border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
+                                className="w-full border-b-2 text-[12px] xl:text-lg border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
                             />
                         </div>
                         <div>
@@ -182,7 +182,7 @@ const FormFill = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full border-b-2 border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
+                                className="w-full border-b-2 text-[12px] xl:text-lg border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
                             />
                         </div>
                         <div>
@@ -193,7 +193,7 @@ const FormFill = () => {
                                 value={formData.mobile}
                                 onChange={handleChange}
                                 required
-                                className="w-full border-b-2 border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
+                                className="w-full border-b-2 text-[12px] xl:text-lg border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
                             />
                         </div>
                         <div>
@@ -204,7 +204,7 @@ const FormFill = () => {
                                 value={formData.organisation}
                                 onChange={handleChange}
                                 required
-                                className="w-full border-b-2 border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
+                                className="w-full border-b-2 text-[12px] xl:text-lg border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
                             />
                         </div>
                         <div>
@@ -215,7 +215,7 @@ const FormFill = () => {
                                 value={formData.designation}
                                 onChange={handleChange}
                                 required
-                                className="w-full border-b-2 border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
+                                className="w-full border-b-2 text-[12px] xl:text-lg border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
                             />
                         </div>
                         <div>
@@ -225,13 +225,13 @@ const FormFill = () => {
                                 placeholder="GSTIN (N/A In Case Individuals)"
                                 value={formData.gstin}
                                 onChange={handleChange}
-                                className="w-full border-b-2 border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
+                                className="w-full border-b-2 text-[12px] xl:text-lg border-gray-300 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-500 bg-transparent"
                             />
                         </div>
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-32 mt-8 bg-gradient-to-r from-emerald-500 to-sky-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-32 xl:mt-8 mt-6 bg-gradient-to-r from-emerald-500 to-sky-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {loading ? 'Processing...' : 'Register'}
                         </button>
